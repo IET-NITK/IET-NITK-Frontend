@@ -1,5 +1,5 @@
 "use client"
-import {useState} from react;
+import {useState} from "react";
 import About from "@/components/about";
 import SIG from "@/components/sig";
 import Link from 'next/link'
