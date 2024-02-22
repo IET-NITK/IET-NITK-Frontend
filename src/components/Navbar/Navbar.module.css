@@ -30,7 +30,11 @@
   
   .navLink:hover {
     color: whitesmoke; 
-    background-color: purple; 
+    background-color: #800080; 
     border: 2px solid white; 
     box-sizing: border-box; 
+  }
+
+  .navItem{
+    font-family: 'Poppins',sans-serif;
   }

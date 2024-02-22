@@ -33,39 +33,54 @@ export default BlogList;*/
 "use client"
 import React, { useEffect, useState } from 'react';
 import BlogCard from './Blogcard';
+import Footer from '@/components/footer';
 import Navbar from "@/components/Navbar/Navbar";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 6;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://tetragram.codered.cloud/api/v2/pages/?type=blog.BlogPage&fields=*');
         const data = await response.json();
-        console.log(data.items)
         setBlogs(data.items);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchData(); 
-  }, []); 
+    fetchData();
+  }, []);
+
+  // Calculate the index range for the current page
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
+
+  // Function to handle page change
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   return (
     <div>
       <Navbar />
-      <h1>Blogs</h1>
-      {blogs.map((blog, index) => (
+      {currentBlogs.map((blog, index) => (
         <BlogCard
           key={index}
           title={blog.title}
-          blogger={blog.blogger}
-          img={blog.img}
-          description={blog.blog_body}  
-          />
-))}
+          blogger={blog.blog_authors}
+          img={blog.blog_img_url}
+          description={blog.blog_body}
+          blogid={blog.id}
+        />
+      ))}
+    
+      <br></br>
+      <Footer />
     </div>
   );
 };
