@@ -86,6 +86,7 @@ const Home = () => {
 
 export default Home;
 */
+"use client"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/footer';

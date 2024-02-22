@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer";
-import Image from 'next/image';
 import ReactMarkdown from "react-markdown";
 import './styleblog.css'
 // Import Tailwind CSS classes
