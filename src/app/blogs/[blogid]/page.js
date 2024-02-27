@@ -11,7 +11,7 @@ export async function generateStaticPaths() {
    return {
     paths: posts.items.map((post) => ({
     blogid: post.blog_slug,
-  }))
+  })),
     fallback: false, // Enable fallback to render the page on-demand
   };
 }
