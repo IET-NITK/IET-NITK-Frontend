@@ -6,10 +6,12 @@ export default function BlogDetail({ params }){
   )
 }
 
-export async function generateStaticParams() {
+export async function generateStaticPaths() {
   const posts = await fetch('https://tetragram.codered.cloud/api/v2/pages/?type=blog.BlogPage&fields=*').then((res) => res.json())
- 
-  return posts.items.map((post) => ({
+   return {
+    paths: posts.items.map((post) => ({
     blogid: post.blog_slug,
   }))
+    fallback: false, // Enable fallback to render the page on-demand
+  };
 }
