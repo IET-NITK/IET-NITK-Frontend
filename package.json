@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "static": "next build && next export && touch ./out/.nojekyll && echo 'mbsaiaditya.github.io' > ./out/CNAME",
+        "static": "next build && next export && touch ./out/.nojekyll && echo 'mbsaiaditya.github.io' > ./out/CNAME"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
