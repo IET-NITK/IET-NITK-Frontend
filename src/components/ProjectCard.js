@@ -11,7 +11,7 @@ const ProjectCard = ({ project }) => {
         </div>
         <div className='p-6 pb-0 h-full'>
           <div className='h-full'>
-            <h6 className="mb-2 text-md font-semibold text-fuchsia-900">{project.project_sig}</h6>
+            <h6 className="mb-2 text-md font-semibold text-fuchsia-900">{project.project_sig.toUpperCase()}</h6>
             <h5 className="mb-2 text-2xl font-semibold tracking-tight text-black">{project.title}</h5>
             <p className="mb-3 font-normal text-gray-700">({project.project_description.slice(0, 150) + "... see more"})</p>
           </div>
